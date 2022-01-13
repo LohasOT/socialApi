@@ -27,4 +27,11 @@ router.put('/users/:id', passport.authenticate('jwt'), async function (req, res)
   res.json(user)
 })
 
+// delete user
+router.delete('/users/:id', passport.authenticate('jwt'), (req, res) => {
+  User.findByIdAndDelete(req.params.id)
+    .then(reply =>
+      res.json(reply)
+    )
+})
 module.exports = router
