@@ -35,10 +35,8 @@ router.put('/users/:id', passport.authenticate('jwt'), async function (req, res)
 })
 
 // delete user
-router.delete('/users/:id', passport.authenticate('jwt'), (req, res) => {
-  User.findByIdAndDelete(req.params.id)
-    .then(reply =>
-      res.json(reply)
-    )
+router.delete('/users/:id', async function (req, res) {
+  const user = await User.findByIdAndDelete(req.params.id)
+  res.sendStatus(200)
 })
 module.exports = router

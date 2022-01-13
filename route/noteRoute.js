@@ -16,6 +16,12 @@ router.post('/notes', passport.authenticate('jwt'), async function (req, res) {
   res.json(note)
 })
 
+// edit one note
+router.put('/notes/:id', passport.authenticate('jwt'), async function (req, res) {
+  const note = await Note.findByIdAndUpdate(req.params.id,{ $set: req.body } )
+  res.json(note)
+})
+
 // delete one note
 router.delete('/notes/:id', passport.authenticate('jwt'), (req, res) => {
   Note.findByIdAndDelete(req.params.id)

@@ -15,12 +15,16 @@ router.post('/posts', passport.authenticate('jwt'), async function (req, res) {
   res.json(post)
 })
 
+// edit one post
+router.put('/posts/:id', passport.authenticate('jwt'), async function (req, res) {
+  const post = await Post.findByIdAndUpdate(req.params.id, { $set: req.body })
+  res.json(post)
+})
+
 // delete one post
-router.delete('/posts/:id', passport.authenticate('jwt'), (req, res) => {
-  Post.findByIdAndDelete(req.params.id)
-    .then(reply =>
-      res.json(reply)
-    )
+router.delete('/posts/:id', passport.authenticate('jwt'), async function (req, res) {
+  await Post.findByIdAndDelete(req.params.id)
+  res.sendStatus(200)
 })
 
 
