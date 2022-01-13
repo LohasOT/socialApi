@@ -14,24 +14,25 @@ const User = new Schema(
       unique: true,
       match: [/.+@.+\..+/, 'Must match an email address!'],
     },
-    posts: [
-      {
+    posts: [{
         type: Schema.Types.ObjectId,
         ref: 'Post',
-      },
-    ],
-    friends: [
-      {
+    }],
+    notes: [{
+      type: Schema.Types.ObjectId,
+      ref: 'note'
+    }],
+    friends: [{
         type: Schema.Types.ObjectId,
         ref: 'User',
-      },
-    ],
+    }],
   }, { timestamps: true })
 
 userSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
-const User = model('User', userSchema);
+User.plugin(require('passport-local-mongoose'))
 
-module.exports = User;
+module.exports = model('user', User)
+

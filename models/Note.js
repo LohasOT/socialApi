@@ -1,5 +1,4 @@
-const { Schema, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
+const { Schema, model } = require('mongoose');
 
 const Note = new Schema(
   {
@@ -20,4 +19,4 @@ const Note = new Schema(
     }
   }, { timestamps: true })
 
-module.exports = reactionSchema;
+module.exports = model('note', Note)
