@@ -1,16 +1,35 @@
-const express = require('express');
-const db = require('./db');
-const routes = require('./routes');
+require('dotenv').config()
 
-const PORT = process.env.PORT || 3000;
-const app = express();
+const express = require('express')
+const { join } = require('path')
+const passport = require('passport')
+const { Strategy: LocalStrategy } = require('passport-local')
+const { Strategy: JWTStrategy, ExtractJwt } = require('passport-jwt')
+const { User } = require('./models')
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(routes);
+const app = express()
 
-db.once('open', () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-  });
-});
+app.use(express.static(join(__dirname, 'public')))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+passport.use(new LocalStrategy(User.authenticate()))
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+passport.use(new JWTStrategy({
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET
+}, ({ id }, cb) => User.findById(id)
+  .populate('posts')
+  .then(user => cb(null, user))
+  .catch(err => cb(err))))
+
+app.use(require('./routes'))
+
+require('./db')
+  .then(() => app.listen(3000))
+  .catch(err => console.log(err))
