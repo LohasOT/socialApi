@@ -21,6 +21,13 @@ router.post('/users/login', (req, res) => {
 // get user profile
 router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.json(req.user))
 
+// get all users
+router.get('/users', passport.authenticate('jwt'), async function (req, res) {
+  const users = await User.find({}).populate('post')
+  res.json(users)
+})
+
+
 // edit user profile
 router.put('/users/:id', passport.authenticate('jwt'), async function (req, res) {
   const user = await User.findByIdAndUpdate(req.params.id, req.body)
