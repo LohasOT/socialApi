@@ -19,8 +19,8 @@ const Post = new Schema({
   }, { timestamps: true }
 )
 
-thoughtSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+Post.virtual('notesCount').get(function() {
+  return this.notes.length;
 });
 
 module.exports = model('post', Post)

@@ -7,9 +7,7 @@ const Friend = new Schema({
     type: Number,
     enums: [
       0,    //'add friend',
-      1,    //'requested',
-      2,    //'pending',
-      3,    //'friends'
+      1,    //'friends'
     ]
   }
 }, { timestamps: true })
