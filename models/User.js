@@ -23,7 +23,7 @@ const User = new Schema(
       ref: 'note'
     }],
     friends: [{ type: Schema.Types.ObjectId, 
-    ref: 'Friend' 
+    ref: 'user' 
     }]
   }, { timestamps: true })
 
