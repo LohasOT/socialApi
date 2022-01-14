@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { User } = require('../models')
+const { User, Post } = require('../models')
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
@@ -24,7 +24,7 @@ router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.jso
 
 // get all users
 router.get('/users', passport.authenticate('jwt'), async function (req, res) {
-  const users = await User.find({}).populate('post')
+  const users = await User.find({}).populate('posts')
   res.json(users)
 })
 
@@ -42,12 +42,18 @@ router.delete('/users/:id', async function (req, res) {
 })
 
 // add friend
-router.post('/user/:userId/friend/:friendsId', passport.authenticate('jwt'), async function (req, res) {
-  const friend = await User.findOneAndUpdate (req.params.userId, { $addToSet: { friends: req.params.friendId } })
-  const friend2 = await User.findOneAndUpdate(req.params.friendId, { $addToSet: { friends: req.params.userId } })
+router.post('/user/:userId/friend/:friendId', passport.authenticate('jwt'), async function (req, res) {
+  const friend = await User.findByIdAndUpdate (req.params.userId, { $addToSet: { friends: req.params.friendId } })
+  const friend2 = await User.findByIdAndUpdate(req.params.friendId, { $addToSet: { friends: req.params.userId } })
   res.sendStatus(200)
 
 })
 
+// delete friend
+router.delete('/user/:userId/friend/:friendId', passport.authenticate('jwt'), async function (req, res) {
+  const friend = await User.findByIdAndUpdate(req.params.userId, { $pull: { friends: req.params.friendId } })
+  const friend2 = await User.findByIdAndUpdate(req.params.friendId, { $pull: { friends: req.params.userId } })
+  res.sendStatus(200)
 
+})
 module.exports = router

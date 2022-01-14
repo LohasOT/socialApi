@@ -12,7 +12,7 @@ const Post = new Schema({
       ref: 'user',
       required: true
     },
-    note: [{
+    notes: [{
       type: Schema.Types.ObjectId,
       ref: 'note'
     }]

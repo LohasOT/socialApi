@@ -5,7 +5,7 @@ const { sendStatus } = require('express/lib/response')
 
 // find all posts
 router.get('/posts', passport.authenticate('jwt'), async function (req, res) {
-  const posts = await Post.find({}).populate('user').populate('note')
+  const posts = await Post.find({}).populate('user').populate('notes')
   res.json(posts)
 })
 // create a post
