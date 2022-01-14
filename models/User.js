@@ -25,11 +25,18 @@ const User = new Schema(
     friends: [{ type: Schema.Types.ObjectId, 
     ref: 'user' 
     }]
+  },
+  {
+  toJSON: {
+    virtuals: true
+  },
+  id: false
   }, { timestamps: true })
 
+
 User.virtual('friendCount').get(function () {
-  return this.friends.length;
-});
+  return this.friends.length
+})
 
 User.plugin(require('passport-local-mongoose'))
 
