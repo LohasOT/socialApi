@@ -8,6 +8,13 @@ router.get('/posts', passport.authenticate('jwt'), async function (req, res) {
   const posts = await Post.find({}).populate('user').populate('notes')
   res.json(posts)
 })
+
+// find one post
+router.get('/post/:id', passport.authenticate('jwt'), async function (req, res) {
+  const posts = await Post.findById(req.params.id).populate('user').populate('notes')
+  res.json(posts)
+})
+
 // create a post
 router.post('/posts', passport.authenticate('jwt'), async function (req, res) {
   const post = await Post.create({ ...req.body, user: req.user._id })
