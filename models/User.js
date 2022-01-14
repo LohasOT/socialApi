@@ -16,14 +16,14 @@ const User = new Schema(
     },
     posts: [{
         type: Schema.Types.ObjectId,
-        ref: 'Post',
+        ref: 'post',
     }],
     notes: [{
       type: Schema.Types.ObjectId,
       ref: 'note'
     }],
     friends: [{ type: Schema.Types.ObjectId, 
-    ref: 'Friends' 
+    ref: 'Friend' 
     }]
   }, { timestamps: true })
 

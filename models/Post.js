@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose');
 const Post = new Schema({
     body: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to leave a post!',
       minlength: 1,
       maxlength: 280
     },
@@ -12,16 +12,12 @@ const Post = new Schema({
       ref: 'user',
       required: true
     },
-    notes: [{
+    note: [{
       type: Schema.Types.ObjectId,
       ref: 'note'
     }]
   }, { timestamps: true }
 )
-
-Post.virtual('notesCount').get(function() {
-  return this.notes.length;
-});
 
 module.exports = model('post', Post)
 

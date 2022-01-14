@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const Friend = new Schema({
-  requester: { type: Schema.Types.ObjectId, ref: 'Users' },
-  recipient: { type: Schema.Types.ObjectId, ref: 'Users' },
+  requester: { type: Schema.Types.ObjectId, ref: 'user' },
+  recipient: { type: Schema.Types.ObjectId, ref: 'user' },
   status: {
     type: Number,
     enums: [
@@ -12,4 +12,4 @@ const Friend = new Schema({
   }
 }, { timestamps: true })
 
-module.exports = model('friends', Friend)
+module.exports = model('friend', Friend)
