@@ -26,8 +26,10 @@ This project is covered under the MIT
 
 <img src="https://user-images.githubusercontent.com/91640571/149601526-8efae479-61f6-47d1-b534-9150085903b7.png" alt="example picture">
 
-## Here is my Youtube video tutorial
+## Here are my Youtube video tutorial
 
-  <a href="https://www.youtube.com/watch?v=uL1uDzYUSNU">Youtube Tutorial 1</a> 
+  <a href="https://www.youtube.com/watch?v=a1jzDkPDK40">Youtube Tutorial 1</a> 
 
-  <a href="https://www.youtube.com/watch?v=xPoGjLGhvnI">Youtube Tutorial 2</a> 
+  <a href="https://www.youtube.com/watch?v=iS56hJVbNho">Youtube Tutorial 2</a> 
+
+  <a href="https://www.youtube.com/watch?v=ScS1618VENI">Youtube Tutorial 3</a> 
