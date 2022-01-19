@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const Post = new Schema({
+const Thought = new Schema({
     body: {
       type: String,
       required: 'You need to leave a post!',
@@ -12,12 +12,12 @@ const Post = new Schema({
       ref: 'user',
       required: true
     },
-    notes: [{
+    reactions: [{
       type: Schema.Types.ObjectId,
-      ref: 'note'
+      ref: 'reaction'
     }]
   }, { timestamps: true }
 )
 
-module.exports = model('post', Post)
+module.exports = model('thought', Thought)
 

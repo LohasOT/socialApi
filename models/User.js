@@ -14,13 +14,13 @@ const User = new Schema(
       unique: true,
       match: [/.+@.+\..+/, 'Must match an email address!'],
     },
-    posts: [{
+    thoughts: [{
         type: Schema.Types.ObjectId,
-        ref: 'post',
+        ref: 'thought',
     }],
-    notes: [{
+    reactions: [{
       type: Schema.Types.ObjectId,
-      ref: 'note'
+      ref: 'reaction'
     }],
     friends: [{ type: Schema.Types.ObjectId, 
     ref: 'user' 
