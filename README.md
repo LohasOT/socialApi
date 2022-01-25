@@ -28,8 +28,4 @@ This project is covered under the MIT
 
 ## Here are my Youtube video tutorial
 
-  <a href="https://www.youtube.com/watch?v=a1jzDkPDK40">Youtube Tutorial 1</a> 
-
-  <a href="https://www.youtube.com/watch?v=iS56hJVbNho">Youtube Tutorial 2</a> 
-
-  <a href="https://www.youtube.com/watch?v=ScS1618VENI">Youtube Tutorial 3</a> 
+  <a href="https://www.youtube.com/watch?v=cXn0gs5mw2o">Youtube Tutorial</a> 
