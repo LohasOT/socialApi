@@ -3,7 +3,7 @@
 ![Badge for GitHub last commit](https://img.shields.io/github/last-commit/LohasOT/socialApi?style=flat&logo=appveyor) ![Badge for GitHub commit activity](https://img.shields.io/github/commit-activity/w/LohasOT/socialApi?color=purple) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
-API for a social network web application where users can share their posts, comment to friends’ posts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM.
+API for a social network web application where users can share their thoughts, comment to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM.
 
 ## Table of Contents
 - [Installation](#Installation)

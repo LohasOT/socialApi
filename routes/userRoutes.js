@@ -24,13 +24,13 @@ router.get('/users/profile', passport.authenticate('jwt'), (req, res) => res.jso
 
 // get all users
 router.get('/users', passport.authenticate('jwt'), async function (req, res) {
-  const users = await User.find({}).populate('posts')
+  const users = await User.find({}).populate('thoughts')
   res.json(users)
 })
 
 // get one user
 router.get('/user/:id', passport.authenticate('jwt'), async function (req, res) {
-  const user = await User.findById(req.params.id).populate('posts')
+  const user = await User.findById(req.params.id).populate('thoughts')
   res.json(user)
 })
 
