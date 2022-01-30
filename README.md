@@ -24,7 +24,7 @@ This project is covered under the MIT
 - GitHub: [https://github.com/LohasOT](https://github.com/LohasOT)
 - Email: [oliverhoang93@gmail.com](oliverhoang93@gmail.com)
 
-<img src="https://user-images.githubusercontent.com/91640571/149601526-8efae479-61f6-47d1-b534-9150085903b7.png" alt="example picture">
+<img src="https://user-images.githubusercontent.com/91640571/151683692-a5987b89-e534-42f8-89c1-cba2b1cabdfc.png" alt="example picture">
 
 ## Here are my Youtube video tutorial
 
